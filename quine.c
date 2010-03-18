@@ -57,7 +57,7 @@ const char* s[] = {
   0,
   "};",
   "",
-  "int main(int argc, char ** argv) {",
+  "int main(int argc, char** argv) {",
   "  int count = 0;",
   "  const char** line = s;",
   "  const char** cursor = s;",
@@ -105,7 +105,7 @@ const char* s[] = {
   0
 };
 
-int main(int argc, char ** argv) {
+int main(int argc, char** argv) {
   int count = 0;
   const char** line = s;
   const char** cursor = s;
