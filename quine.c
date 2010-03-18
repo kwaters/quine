@@ -15,8 +15,8 @@ const char* s[] = {
   "",
   "int main(int argc, char ** argv) {",
   "  int count = 0;",
-  "  char** line = s;",
-  "  char** cursor = s;",
+  "  const char** line = s;",
+  "  const char** cursor = s;",
   "",
   "  for (; *line; ++line)",
   "    printf(\"%s\\n\", *line);",
@@ -24,7 +24,7 @@ const char* s[] = {
   "  while (count < 2) {",
   "    char* quoted = malloc(2 * strlen(*cursor));",
   "    char* q = quoted;",
-  "    char* c;",
+  "    const char* c;",
   "    for (c = *cursor; *c; ++c) {",
   "      switch (*c) {",
   "        case '\\\\':",
@@ -50,7 +50,7 @@ const char* s[] = {
   "      ++count;",
   "    }",
   "  }",
-  "  printf(\"  0\\n\", *cursor);",
+  "  printf(\"  0\\n\");",
   "",
   "  for (++line; *line; ++line)",
   "    printf(\"%s\\n\", *line);",
@@ -63,8 +63,8 @@ const char* s[] = {
 
 int main(int argc, char ** argv) {
   int count = 0;
-  char** line = s;
-  char** cursor = s;
+  const char** line = s;
+  const char** cursor = s;
 
   for (; *line; ++line)
     printf("%s\n", *line);
@@ -72,7 +72,7 @@ int main(int argc, char ** argv) {
   while (count < 2) {
     char* quoted = malloc(2 * strlen(*cursor));
     char* q = quoted;
-    char* c;
+    const char* c;
     for (c = *cursor; *c; ++c) {
       switch (*c) {
         case '\\':
@@ -98,7 +98,7 @@ int main(int argc, char ** argv) {
       ++count;
     }
   }
-  printf("  0\n", *cursor);
+  printf("  0\n");
 
   for (++line; *line; ++line)
     printf("%s\n", *line);
